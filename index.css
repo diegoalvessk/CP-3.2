@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+    background-image: linear-gradient(to right, rgb(20, 147, 110), rgb(17, 54, 71));
 }
 
 #container {
@@ -16,14 +16,14 @@ body {
 }
 
 fieldset {
-    border: 0.2vh solid dodgerblue;
+    border: 0.2vh solid black;
 }
 
 legend {
-    border: 0.2vh solid dodgerblue;
+    border: 0.2vh solid black;
     padding: 1vh;
     text-align: center;
-    background-color: dodgerblue;
+    background-color: black;
     border-radius: 1.5vh;
 }
 
@@ -43,7 +43,7 @@ legend {
 }
 
 #submit {
-    background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+    background-image: linear-gradient(to right, rgb(20, 147, 110), rgb(17, 54, 71));
     color: white;
     width: 100%;
     padding: 7px;
