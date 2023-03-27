@@ -5,7 +5,7 @@ let valor = document.getElementById("valor")
 let cor = document.getElementById("cor")
 let automatico = document.getElementById("automatico")
 let submit = document.getElementById("submit")
-let carro = []
+let carros = []
 let index = 0
 
 submit.addEventListener("click", cadastrarObjeto)
@@ -34,7 +34,7 @@ automatico.addEventListener("change", event => {
 })
 
 function cadastrarObjeto(){
-    carro[index] = {
+    carros[index] = {
         marca: window.localStorage.getItem('marca'),
         modelo: window.localStorage.getItem('modelo'),
         ano: window.localStorage.getItem('ano'),
@@ -42,7 +42,7 @@ function cadastrarObjeto(){
         cor: window.localStorage.getItem('cor'),
         automatico: window.localStorage.getItem('automatico'),
     }
-    console.log(carro[index])
+    console.log(carros[index])
     index++
 }
 
@@ -58,26 +58,39 @@ window.addEventListener("load", event => {
 
 })
 
-function pesquisarMarca(){
-    let nomeMarca = "gol"
+
+function pesquisarMarca(nomeMarca){
     let resultadoPesquisa = []
 
-    for (let index = 0; index < carro.length; index++) {
-        if(carro[index].marca == nomeMarca){
-            resultadoPesquisa.push(carro[index])
+    for (let index = 0; index < carros.length; index++) {
+        if(carros[index].marca == nomeMarca){
+            resultadoPesquisa.push(carros[index])
         }
     }
-    
     console.log(resultadoPesquisa)
 }
 
 function marcasDisponiveis(){
     let marcasDisponiveis = []
+    let contador = 0
 
-    for (let index = 0; index < carro.length; index++) {
-        if(carro.indexOf(carro[index].marca) == -1){
-            marcasDisponiveis.push(carro[index])
+    for (let index = 0; index < carros.length; index++) {
+        if(index == 0){
+            marcasDisponiveis.push(carros[index])
+        }else{
+            for (let index2 = 0; index2 < marcasDisponiveis.length; index2++) {
+                if (carros[index].marca == marcasDisponiveis[index2].marca) {
+                    contador++
+                }
+            }
+
+            if(contador == 0){
+                marcasDisponiveis.push(carros[index])
+            }else{
+                contador = 0
+            }
         }
+
     }
 
     console.log(marcasDisponiveis)
